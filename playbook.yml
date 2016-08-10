@@ -1,0 +1,26 @@
+- hosts: all
+
+  vars:
+    homebrew_install_path: /usr/local
+    homebrew_brew_bin_path: /usr/local/bin
+
+    homebrew_installed_packages:
+      - zsh
+      - wget
+      - node
+      - dnsmasq
+      - git
+      - mongodb
+    homebrew_upgrade_all_packages: no
+    homebrew_taps:
+      - caskroom/cask
+    homebrew_cask_apps: ~
+    homebrew_cask_appdir: /Applications
+    homebrew_use_brewfile: true
+    homebrew_brewfile_dir: '~'
+
+  roles:
+    - roles/homebrew
+    - roles/dnsmasq
+    - roles/mongodb
+

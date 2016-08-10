@@ -1,0 +1,19 @@
+---
+
+- name: Check config
+  stat: path=/usr/local/etc/dnsmasq.conf
+  register: dnsmasq_config
+
+- name: Copy config
+  command: cp /usr/local/opt/dnsmasq/dnsmasq.conf.example /usr/local/etc/dnsmasq.conf
+  when: dnsmasq_config.stat.exists == false
+
+- name: Lets work after reboot
+  command: cp -v $(brew --prefix dnsmasq)/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons
+  become: yes
+  when: dnsmasq_config.stat.exists == false
+
+- name: Launch now
+  command: launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+  become: yes
+  when: dnsmasq_config.stat.exists == false

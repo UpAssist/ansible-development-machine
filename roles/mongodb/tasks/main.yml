@@ -1,0 +1,4 @@
+---
+
+- name: start mongodb
+  command: "brew services start mongodb"
