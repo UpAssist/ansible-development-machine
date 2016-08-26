@@ -8,6 +8,36 @@
   command: cp /usr/local/opt/dnsmasq/dnsmasq.conf.example /usr/local/etc/dnsmasq.conf
   when: dnsmasq_config.stat.exists == false
 
+- name: Add .x to dnsmasq.conf
+  lineinfile:
+    line: "address=/{{ item }}/127.0.0.1"
+    dest: /usr/local/etc/dnsmasq.conf
+  with_items:
+    - flow
+    - dev
+    - web
+    - www
+
+- name: check .x resolvers
+  stat:
+    path: "/etc/resolver/{{ item }}"
+  with_items:
+    - flow
+    - dev
+    - web
+    - www
+
+- name: Create .x resolver
+  lineinfile:
+    line: "nameserver 127.0.0.1"
+    dest: "/etc/resolver/{{ item }}"
+  become: yes
+  with_items:
+    - flow
+    - dev
+    - web
+    - www
+
 - name: Lets work after reboot
   command: cp -v $(brew --prefix dnsmasq)/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons
   become: yes
@@ -16,4 +46,3 @@
 - name: Launch now
   command: launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
   become: yes
-  when: dnsmasq_config.stat.exists == false
