@@ -1,26 +1,61 @@
 - hosts: all
 
   vars:
-    homebrew_install_path: /usr/local
+    homebrew_install_path: /usr/local/homebrew
     homebrew_brew_bin_path: /usr/local/bin
 
     homebrew_installed_packages:
       - zsh
       - wget
-      - node
-      - dnsmasq
       - git
-      - mongodb
+      - node
+      - docker-machine-nfs
     homebrew_upgrade_all_packages: no
     homebrew_taps:
       - caskroom/cask
-    homebrew_cask_apps: ~
+    homebrew_cask_apps:
+      - google-chrome
+      - google-drive
+      - iterm2
+      - phpstorm
+      - atom
+      - 1password
+      - apache-couchdb
+      - mongodb
+      - caffeine
+      - cleanmymac
+      - slack
+      - hipchat
+      - docker-toolbox
+      - dropbox
+      - evernote
+      - skitch
+      - firefox
+      - screenflow
+      - gpgtools
+      - harvest
+      - libreoffice
+      - sequel-pro
+      - spotify
+      - stack
+      - teamviewer
+      - transmit
+      - virtualbox
+      - viscosity
+      - visual-studio-code
+      - wkhtmltopdf
+      - whatsapp
     homebrew_cask_appdir: /Applications
     homebrew_use_brewfile: true
     homebrew_brewfile_dir: '~'
 
   roles:
     - roles/homebrew
-    - roles/dnsmasq
-    - roles/mongodb
 
+# Todo: https://gorails.com/setup/osx/10.11-el-capitan
+# echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+# echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+# install mkdocs
+
+# Install oh-my-zsh
+# curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
