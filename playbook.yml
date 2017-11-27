@@ -9,7 +9,6 @@
       - wget
       - git
       - node
-      - docker-machine-nfs
     homebrew_upgrade_all_packages: no
     homebrew_taps:
       - caskroom/cask
@@ -18,33 +17,18 @@
       - google-drive
       - iterm2
       - phpstorm
-      - atom
       - 1password
-      - apache-couchdb
-      - mongodb
       - caffeine
       - cleanmymac
-      - slack
-      - hipchat
-      - docker-toolbox
       - dropbox
-      - evernote
       - skitch
-      - firefox
       - screenflow
-      - gpgtools
       - harvest
-      - libreoffice
       - sequel-pro
       - spotify
-      - stack
-      - teamviewer
       - transmit
-      - virtualbox
       - viscosity
-      - wkhtmltopdf
-      - whatsapp
-      - skype
+      - franz
     homebrew_cask_appdir: /Applications
     homebrew_use_brewfile: true
     homebrew_brewfile_dir: '~'
