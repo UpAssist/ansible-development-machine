@@ -9,19 +9,18 @@
       - wget
       - git
       - node
+      - php71
     homebrew_upgrade_all_packages: no
     homebrew_taps:
       - caskroom/cask
     homebrew_cask_apps:
       - google-chrome
-      - google-drive
       - iterm2
       - phpstorm
       - 1password
       - caffeine
       - cleanmymac
       - dropbox
-      - skitch
       - screenflow
       - harvest
       - sequel-pro
@@ -29,6 +28,7 @@
       - transmit
       - viscosity
       - franz
+      - slack
     homebrew_cask_appdir: /Applications
     homebrew_use_brewfile: true
     homebrew_brewfile_dir: '~'
